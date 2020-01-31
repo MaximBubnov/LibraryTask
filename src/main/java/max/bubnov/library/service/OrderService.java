@@ -84,6 +84,7 @@ public class OrderService {
         return map;
     }
 
+    //Get all books, which client ordered
     private Integer getCountOfBooks(Client client) {
         List<Order> orders = client.getOrders();
         int count = 0;
@@ -95,6 +96,13 @@ public class OrderService {
         return count;
     }
 
+    //Get list of orders for some period time. Example of custom PeriodTime in JSON below
+    /*
+    {
+       "first" : "2020-01-20",
+       "second" : "2020-01-30"
+     }
+     */
     private List<Order> ordersForPeriod(PeriodTime time, List<Order> orders) {
 
         long f = time.getFirst().toEpochDay();
